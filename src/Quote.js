@@ -75,7 +75,7 @@ export default function Quote() {
                 <p class="mb-0 mt-2 font-italic">{quotes.text}<a href="#" class="text-info"></a>."</p>
                 <footer class="blockquote-footer pt-4 mt-4 border-top"><cite title="Source Title">{quotes.author}</cite>
                 </footer>
-                <Rating className="btn" onClick={handleRating} ratingValue={rating} /><br />  <button className="btn" onClick={getQoute}>New Qoute</button>
+                <Rating className="btn" onClick={handleRating} ratingValue={rating} /><br />  <button className="btn" onClick={getQoute}>New Quote</button>
               </blockquote>
             </div>
           </div>
