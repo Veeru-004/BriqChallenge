@@ -17,14 +17,17 @@ export default function Quote() {
   }, []);
   return (
     <>
-      <div className="App">
-        <div className="quote">
+      <div className="App1">
+        <div className="example">
+          <div className="font">
           <h2>{quotes.text}</h2>
           <h3>{quotes.author}</h3>
+          </div>
         </div>
-        <br />
+        <br/>
+        </div>
         <button className="btn" onClick={getQuote}>New Quote</button>
-      </div>
+     
     </>
   );
 }
