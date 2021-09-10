@@ -1,9 +1,9 @@
-import Rate from "./Rate";
+import Quote from "./Quote";
 
 export default function App() {
    return (
     <div >
-    <Rate/>
+    <Quote/>
     </div>
   );
 }
