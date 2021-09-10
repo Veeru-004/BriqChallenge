@@ -3,7 +3,7 @@ import './App.css';
 export default function Quote() {
 
   const [quotes, setQuotes] = useState("");
-  
+
   const getQuote = () => {
     fetch("https://type.fit/api/quotes")
       .then(response => response.json())
@@ -17,16 +17,16 @@ export default function Quote() {
   }, []);
   return (
     <>
-      <div className="App1">
+      <div>
         <div className="example">
           <div className="font">
-          <h2>{quotes.text}</h2>
-          <h3>{quotes.author}</h3>
+            <h2>{quotes.text}</h2>
+            <h3>{quotes.author}</h3>
           </div>
         </div>
-        <br/>
-        </div>
-        <button id="button"className="btn" onClick={getQuote}>New Quote</button>   
+        <br />
+      </div>
+      <button id="button" className="btn" onClick={getQuote}>New Quote</button>
     </>
   );
 }

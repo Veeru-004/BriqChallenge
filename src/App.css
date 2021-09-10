@@ -16,13 +16,6 @@ body, html {
   flex-direction: column;
 }
 
-.App1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 .quote {
   border-radius: 10px;
   padding: 50px;
@@ -56,8 +49,7 @@ body, html {
   transition: background 1s, color 1s;
   position: relative;
   margin: 10px;
-  width:130px;
-
+  width: 130px;
 }
 
 .btn:hover {
@@ -73,12 +65,28 @@ body, html {
 
 @media screen and (min-width: 600px) {
   div.example {
-    font-size: 2em;  
+    font-size: 2em;
+  }
+  .quote h2 {
+    font-family: 'Source Sans Pro', cursive;
+    display: flex;
+  }
+  .quote h3 {
+    display: flex;
+    font-family: 'Dancing Script', cursive;
   }
 }
 
 @media screen and (max-width: 600px) {
   div.example {
-    font-size: 2em;  
+    font-size: 2em;
+  }
+  .quote h2 {
+    font-family: 'Source Sans Pro', ;
+    display: flex;
+  }
+  .quote h3 {
+    display: flex;
+    font-family: 'Dancing Script', cursive;
   }
 }
