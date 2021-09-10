@@ -42,7 +42,7 @@ export default function Quote() {
         .then(response => response.json())
         .then((data) => {
           var filtered = data.filter(a => a.author == filterAuthors[0]);
-          if (filtered.length === 1) {
+          if (filtered.length == 1) {
             sameQuote();
             return;
           }
