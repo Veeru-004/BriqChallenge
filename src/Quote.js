@@ -3,6 +3,7 @@ import './App.css';
 export default function Quote() {
 
   const [quotes, setQuotes] = useState("");
+  
   const getQuote = () => {
     fetch("https://type.fit/api/quotes")
       .then(response => response.json())
