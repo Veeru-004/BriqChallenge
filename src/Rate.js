@@ -11,7 +11,6 @@ export default function Rate() {
   return (
     <div className="App">
       <Quote id={rating} />
-      <h1>{rating}</h1>
       <Rating className="btn" onClick={handleRating} ratingValue={rating} />
       <h2>Similar Qoute</h2>
 
