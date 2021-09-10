@@ -26,8 +26,7 @@ export default function Quote() {
         </div>
         <br/>
         </div>
-        <button className="btn" onClick={getQuote}>New Quote</button>
-   
+        <button id="button"className="btn" onClick={getQuote}>New Quote</button>   
     </>
   );
 }
