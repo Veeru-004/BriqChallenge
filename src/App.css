@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lobster&display=swap');
+.App {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+}
+
+.quote {
+  background: url("https://img.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-clouds-shape_24972-1095.jpg?size=626&ext=jpg");
+  background-size: cover;
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.quote h2 {
+  font-size: 2em;
+  font-family: 'Source Sans Pro', cursive;
+}
+
+.quote h3 {
+  font-size: 1.5em;
+  font-family: 'Dancing Script', cursive;
+}
+
+.btn {
+  margin: 10px;
+  border: 2px solid #008CBA;
+  background: transparent;
+  padding: 10px 15px;
+  color: #008CBA;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: background 1s, color 1s;
+}
+
+.btn:hover {
+  background: #008CBA;
+  color: #fff;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
