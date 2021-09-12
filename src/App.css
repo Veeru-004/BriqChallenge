@@ -23,7 +23,7 @@ body {
 }
 
 .btn {
-  border: 2px solid #008CBA;
+  border: 2px solid rgb(17, 136, 184);
   background: transparent;
   padding: 10px 15px;
   color: #008CBA;
@@ -31,14 +31,12 @@ body {
   border-radius: 5px;
   cursor: pointer;
   outline: none;
-  transition: background 1s, color 1s;
   position: relative;
   margin: 15px;
   width: 200px;
 }
 
 .btn:hover {
-  background: #008CBA;
-  color: #fff;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: rgb(17, 128, 143);
+  color: aqua
 }
