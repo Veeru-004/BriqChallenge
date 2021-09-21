@@ -4,33 +4,41 @@ import './App.css';
 
 export default function Quote() {
 
+  //To set the selected author once the rating changed
   const [selectedAuthor, getAuthor] = useState(" ");
-  const [quotes, setQuotes] = useState(" ");
+
+  //To set the quote based on author selection
+  const [quote, setQuote] = useState(" ");
+
+  //To set the rating value based on the rating
   const [rating, setRating] = useState(0);
 
+  //Function to fetch the all qoutes and get the random quote if the author has one quote or the rating is less than 4  
+  const Quotes = () => {
+    fetch("https://type.fit/api/quotes")
+      .then(response => response.json())
+      .then((data) => {
+        let randomNum = Math.floor(Math.random() * data.length);
+        setQuote(data[randomNum]);
+        setRating(0)
+      })
+  }
+
+  //Inbuilt Function to get the rating value and set the selected author
   const handleRating = (rate) => {
     setRating(rate)
-    let value = rate;
-    if (value > 3) {
-      getAuthor(quotes.author)
+    if (rate > 3) {
+      getAuthor(quote.author)
     }
     else {
       getAuthor(" ")
     }
   }
-  const Quote = () => {
-    fetch("https://type.fit/api/quotes")
-      .then(response => response.json())
-      .then((data) => {
-        let randomNum = Math.floor(Math.random() * data.length);
-        setQuotes(data[randomNum]);
-        setRating(0)
-      })
-  }
 
+  //Function to get random quote on applying logic
   const getQoute = () => {
-    if (rating < 4) {
-      Quote();
+    if (rating < 4) { //If rating is less than 
+      Quotes();
     }
     else {
       fetch("https://type.fit/api/quotes")
@@ -38,11 +46,11 @@ export default function Quote() {
         .then((data) => {
           var filtered = data.filter(a => a.author === selectedAuthor);
           if (filtered.length === 1) {
-            Quote();
+            Quotes();
             return;
           }
           let randomNum = Math.floor(Math.random() * filtered.length);
-          setQuotes(filtered[randomNum]);
+          setQuote(filtered[randomNum]);
           setRating(0)
         })
     }
@@ -66,9 +74,9 @@ export default function Quote() {
             <div class="col-lg-6 mx-auto">
               <blockquote class="blockquote blockquote-custom bg-white p-5 shadow rounded">
                 <div class="blockquote-custom-icon bg-info shadow-sm"><i class="fa fa-quote-left text-white"></i></div>
-                <p class="mb-0 mt-2 font-italic">{quotes.text}..."</p>
+                <p class="mb-0 mt-2 font-italic">{quote.text}..."</p>
 
-                <footer class="blockquote-footer pt-4 mt-4 border-top"><cite title="Source Title">{quotes.author}</cite>
+                <footer class="blockquote-footer pt-4 mt-4 border-top"><cite title="Source Title">{quote.author}</cite>
                 </footer>
                 <Rating className="btn" onClick={handleRating} ratingValue={rating} /><br />
                 <button className="btn" onClick={getQoute}>Get New Qoute</button>
