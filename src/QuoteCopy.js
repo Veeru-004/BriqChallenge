@@ -37,17 +37,13 @@ export default function QuoteCopy() {
                     const filteredArray = [];
                     const compare = data.forEach(obj => {
                         let score = stringSimilarity.compareTwoStrings(obj.text, selectedQuote)
-                        if (score > 0) {
-                            let tempObj = {
-                                "value": score,
-                                "text": obj.text,
-                                "author": obj.author,
-                            }
-                            filteredArray.push(tempObj);
+                        let tempObj = {
+                            "value": score,
+                            "text": obj.text,
+                            "author": obj.author,
                         }
-                    }
-                    )
-
+                        filteredArray.push(tempObj);
+                    })
                     //Filter array using score
                     filteredArray.sort(function (a, b) {
                         return (a.value - b.value);
@@ -55,12 +51,10 @@ export default function QuoteCopy() {
 
                     //setting index the most last element to achieve the highest score
                     let randomNum = Math.floor(Math.random() * 42 + 1600);
-                    /*   console.log(filteredArray) */
+                    console.log(filteredArray)
                     setQuote(filteredArray[randomNum]);
                 }
-            }
-                , setRating(0)
-            )
+            }, setRating(0))
     }
 
     useEffect(() => {
