@@ -51,7 +51,7 @@ export default function QuoteCopy() {
 
                     //setting index the most last element to achieve the highest score
                     let randomNum = Math.floor(Math.random() * 42 + 1600);
-                    console.log(filteredArray)
+                 /*    console.log(filteredArray) */
                     setQuote(filteredArray[randomNum]);
                 }
             }, setRating(0))
