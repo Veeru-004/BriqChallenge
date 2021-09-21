@@ -53,7 +53,7 @@ export default function Quote1() {
                     <div className="col-lg-6 mx-auto">
                         <header className="text-center pb-4">
                             <h1>Random Quote</h1>
-                            <p>Give 4/5 Star rating for Same Author Quote</p>
+                            <p>Give 4/5 Star rating for Similar Quote</p>
                         </header>
                     </div>
                     <div>
