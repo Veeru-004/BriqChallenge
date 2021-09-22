@@ -1,9 +1,9 @@
-import QuoteCopy from "./QuoteCopy";
+import QuoteSimilar from "./components/QuoteSimilar";
 
 export default function App() {
    return (
     <div >
-    <QuoteCopy/>
+    <QuoteSimilar/>
     </div>
   );
 }

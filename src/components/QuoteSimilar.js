@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Rating } from 'react-simple-star-rating'
-import './App.css';
+import "..//App.css"
+import stringSimilarity from 'string-similarity'
 
-export default function Quote1() {
+export default function QuoteCopy() {
 
     //To set the selected author once the rating changed
-    const [selectedAuthor, getAuthor] = useState(" ");
+    const [selectedQuote, getQuote] = useState(" ");
 
     //To set the quote based on author selection
     const [quote, setQuote] = useState(" ");
@@ -13,37 +14,51 @@ export default function Quote1() {
     //To set the rating value based on the rating
     const [rating, setRating] = useState(0);
 
-
     //Inbuilt Function to get the rating value and set the selected author
     const handleRating = (rate) => {
         setRating(rate)
         if (rate > 3) {
-            getAuthor(quote.author)
+            getQuote(quote.text)
         }
         else {
-            getAuthor(" ")
+            getQuote(" ")
         }
     }
     //Function to get random quote on applying logic
-    const getQoute = () => {
+    const QuoteFunc = () => {
         fetch("https://type.fit/api/quotes")
             .then(response => response.json())
             .then((data) => {
-                var filteredArray = data.filter(a => a.author === selectedAuthor);
-                if (filteredArray.length === 1 || rating < 4) {
+                if (rating < 4) {
                     let randomNum = Math.floor(Math.random() * data.length);
                     setQuote(data[randomNum]);
                 }
                 else {
-                    let randomNum = Math.floor(Math.random() * filteredArray.length);
+                    const filteredArray = [];
+                    const compare = data.forEach(obj => {
+                        let score = stringSimilarity.compareTwoStrings(obj.text, selectedQuote)
+                        let tempObj = {
+                            "value": score,
+                            "text": obj.text,
+                            "author": obj.author,
+                        }
+                        filteredArray.push(tempObj);
+                    })
+                    //Filter array using score
+                    filteredArray.sort(function (a, b) {
+                        return (a.value - b.value);
+                    })
+
+                    //setting index the most last element to achieve the highest score
+                    let randomNum = Math.floor(Math.random() * 42 + 1600);
+                 /*    console.log(filteredArray) */
                     setQuote(filteredArray[randomNum]);
                 }
-            }
-                , setRating(0)
-            )
+            }, setRating(0))
     }
+
     useEffect(() => {
-        getQoute();
+        QuoteFunc();
     }, []);
 
     return (
@@ -64,15 +79,12 @@ export default function Quote1() {
                                 <footer className="blockquote-footer pt-3 mt-4 border-top">{quote.author}
                                 </footer>
                                 <Rating className="btn" onClick={handleRating} ratingValue={rating} /><br />
-                                <button className="btn" onClick={getQoute}>Get New Qoute</button>
+                                <button className="btn" onClick={QuoteFunc}>Get New Qoute</button>
                             </blockquote>
                         </div>
                     </div>
                 </div>
             </section>
-
-
-
         </>
     );
 }
