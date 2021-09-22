@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Rating } from 'react-simple-star-rating'
-import "..//App.css"
+import "../App.css"
 import stringSimilarity from 'string-similarity'
 
 export default function QuoteCopy() {
