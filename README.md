@@ -1,5 +1,10 @@
 # BriqChallenge
 
+
+Deployed Demo
+
+https://briq-app.herokuapp.com
+
 The Application works on API which provides a collection of Quotes with Author & without Author name
 
 The Application is developed to generate a Random Qoute
